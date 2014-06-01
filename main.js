@@ -37,4 +37,14 @@ define(function (require, exports, module) {
         NodeConnection      = brackets.getModule("utils/NodeConnection"),
 		NodeDomain			= brackets.getModule("utils/NodeDomain"),
         ProjectManager      = brackets.getModule("project/ProjectManager");
-}
+
+    var contextMenu         = Menus.getContextMenu(Menus.ContextMenuIds.PROJECT_MENU);
+
+    function showProperties() {
+
+    }
+
+    CommandManager.register("Properties", "mackenza.cmdShowProperties", showProperties);
+    contextMenu.addMenuItem("mackenza.cmdShowProperties", "", Menus.LAST);
+
+});
