@@ -1,0 +1,53 @@
+<div class="file-properties-dialog modal">
+    <div class="modal-header">
+        <h1 class="dialog-title">Properties for {{{fileName}}}</h1>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="span6">
+                <form class="form-horizontal">
+                    <div class="control-group">
+                        <label class="control-label">Current theme:</label>
+                        <!-- ko foreach: settings.theme -->
+                        <div class="controls">
+                            <label class="control-label" data-bind="html: $data" style="text-align:left;"></label>
+                        </div>
+                        <!-- /ko -->
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Custom scrollbars:</label>
+                        <div class="controls">
+                            <input type="checkbox" data-bind="checked: settings.enableScrollbars">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Font size:</label>
+                        <div class="controls">
+                            <input type="text" data-bind="value: settings.fontSize">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Font type:</label>
+                        <div class="controls">
+                            <input type="text" data-bind="value: settings.fontType">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Line height:</label>
+                        <div class="controls">
+                            <input type="text" data-bind="value: settings.lineHeight">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="dialog-button btn cancel" data-button-id="cancel">Cancel</a>
+        <a class="dialog-button btn primary save" data-button-id="save">Save</a>
+    </div>
+</div>
