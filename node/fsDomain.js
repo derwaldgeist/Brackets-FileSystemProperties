@@ -29,17 +29,17 @@
     var fs = require("fs");
 
     function cmdGetFileProperties(filePath) {
-        fs.stat(filePath, function (err, stats) {
-            return stats;
-        });
+        // var path = "C:/Users/Andrew/Documents/GitHub/brackets/src/main.js";
+        return fs.statSync(filePath);
     }
 
     function init(domainManager) {
+        domainManager.registerDomain("fsDomain");
         domainManager.registerCommand(
             "fsDomain",
             "getFileProperties",
             cmdGetFileProperties,
-            true,
+            false,
             "returns a file stat object from Node fs"
         );
     }

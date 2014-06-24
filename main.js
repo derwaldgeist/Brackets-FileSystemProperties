@@ -42,11 +42,12 @@ define(function (require, exports, module) {
         var selectedItem;
 
         selectedItem = ProjectManager.getSelectedItem();
+        // console.log(selectedItem._path);
         fsDomain.exec("getFileProperties", selectedItem._path)
             .done(function (stats) {
                 console.log(stats);
             }).fail(function (err) {
-                console.error(err);
+                console.error("error in fs.stat: " + err);
             });
 
 
