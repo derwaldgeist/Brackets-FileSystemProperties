@@ -21,39 +21,28 @@
  */
 
 /*jslint vars: true, plusplus: true, devel: true, nomen: true,  regexp: true, indent: 4, maxerr: 50 */
-/*global define, brackets, $, window, marked, _hideSettings */
+/*global exports, define, require, brackets, $, window, marked, _hideSettings */
 
-
-define(function (require, exports, module) {
+(function () {
     "use strict";
 
-    // Brackets modules
-    var CommandManager      = brackets.getModule("command/CommandManager"),
-        Menus               = brackets.getModule("command/Menus"),
-        ExtensionUtils      = brackets.getModule("utils/ExtensionUtils"),
-		NodeDomain			= brackets.getModule("utils/NodeDomain"),
-        ProjectManager      = brackets.getModule("project/ProjectManager");
+    var fs = require("fs");
 
-    var contextMenu         = Menus.getContextMenu(Menus.ContextMenuIds.PROJECT_MENU);
-
-    var fsDomain = new NodeDomain("fsDomain", ExtensionUtils.getModulePath(module, "node/fsDomain"));
-
-    function showProperties() {
-        var selectedItem;
-
-        selectedItem = ProjectManager.getSelectedItem();
-        fsDomain.exec("getFileProperties", selectedItem._path)
-            .done(function (stats) {
-                console.log(stats);
-            }).fail(function (err) {
-                console.error(err);
-            });
-
-
-
+    function cmdGetFileProperties(filePath) {
+        fs.stat(filePath, function (err, stats) {
+            return stats;
+        });
     }
 
-    CommandManager.register("Properties", "mackenza.cmdShowProperties", showProperties);
-    contextMenu.addMenuItem("mackenza.cmdShowProperties", "", Menus.LAST);
+    function init(domainManager) {
+        domainManager.registerCommand(
+            "fsDomain",
+            "getFileProperties",
+            cmdGetFileProperties,
+            true,
+            "returns a file stat object from Node fs"
+        );
+    }
 
-});
+    exports.init = init;
+}());
