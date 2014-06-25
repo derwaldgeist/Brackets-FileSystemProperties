@@ -49,28 +49,34 @@ define(function (require, exports, module) {
         var modified,
             accessed,
             created,
-            mode8;
+            modeOctal,
+            propDialog,
+            compiledDialog;
 
         modified =  new Date(stats.mtime);
         accessed =  new Date(stats.atime);
         created  =  new Date(stats.ctime);
-
-        mode8 = '0' + (stats.mode & parseInt('777', 8)).toString(8);
-
-
+        modeOctal = '0' + (stats.mode & parseInt('777', 8)).toString(8);
+        compiledDialog = Mustache.render(propDialogTmpl,
+                                         {fileName: stats.fileName,
+                                          size: stats.size,
+                                          uid: stats.uid,
+                                          gid: stats.gid,
+                                          mdate: modified,
+                                          adate: accessed,
+                                          cdate: created,
+                                          perms: modeOctal
+                                         });
+        propDialog = Dialogs.showModalDialogUsingTemplate(compiledDialog);
     }
 
     function showProperties() {
-        var selectedItem,
-            propDialog,
-            compiledDialog;
+        var selectedItem;
 
         selectedItem = ProjectManager.getSelectedItem();
         fsDomain.exec("getFileProperties", selectedItem._path, selectedItem._name)
             .done(function (stats) {
                 showPropertiesDialog(stats);
-                compiledDialog = Mustache.render(propDialogTmpl, {fileName: stats.fileName, size: stats.size });
-                propDialog = Dialogs.showModalDialogUsingTemplate(compiledDialog);
             }).fail(function (err) {
                 console.error("error in fs.stat: " + err);
             });
