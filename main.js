@@ -33,29 +33,47 @@ define(function (require, exports, module) {
         ExtensionUtils      = brackets.getModule("utils/ExtensionUtils"),
 		NodeDomain			= brackets.getModule("utils/NodeDomain"),
         ProjectManager      = brackets.getModule("project/ProjectManager"),
-        Moment              = require("lib/moment");
+        moment              = require("moment"),
+        Dialogs             = brackets.getModule("widgets/Dialogs"),
+        propDialogTmpl      = require("text!templates/property-dialog.html");
 
     var contextMenu         = Menus.getContextMenu(Menus.ContextMenuIds.PROJECT_MENU);
 
     var fsDomain = new NodeDomain("fsDomain", ExtensionUtils.getModulePath(module, "node/fsDomain"));
 
+    function formatDateTime(theDateTime) {
+        return moment(theDateTime).format("dddd, MMMM Do YYYY, h:mm:ss a");
+    }
+
+    function showPropertiesDialog(stats) {
+        var modified,
+            accessed,
+            created,
+            mode8;
+
+        modified =  new Date(stats.mtime);
+        accessed =  new Date(stats.atime);
+        created  =  new Date(stats.ctime);
+
+        mode8 = '0' + (stats.mode & parseInt('777', 8)).toString(8);
+
+
+    }
+
     function showProperties() {
         var selectedItem,
-            modified,
-            accessed,
-            created;
+            propDialog,
+            compiledDialog;
 
         selectedItem = ProjectManager.getSelectedItem();
-        // console.log(selectedItem._path);
-        fsDomain.exec("getFileProperties", selectedItem._path)
+        fsDomain.exec("getFileProperties", selectedItem._path, selectedItem._name)
             .done(function (stats) {
-                var d = new Date(stats.mtime);
-                console.log(moment(d));
+                showPropertiesDialog(stats);
+                compiledDialog = Mustache.render(propDialogTmpl, {fileName: stats.fileName, size: stats.size });
+                propDialog = Dialogs.showModalDialogUsingTemplate(compiledDialog);
             }).fail(function (err) {
                 console.error("error in fs.stat: " + err);
             });
-
-
 
     }
 

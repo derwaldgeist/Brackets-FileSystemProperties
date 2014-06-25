@@ -7,25 +7,9 @@
             <div class="span6">
                 <form class="form-horizontal">
                     <div class="control-group">
-                        <label class="control-label">Current theme:</label>
-                        <!-- ko foreach: settings.theme -->
+                        <label class="control-label">Size:</label>
                         <div class="controls">
-                            <label class="control-label" data-bind="html: $data" style="text-align:left;"></label>
-                        </div>
-                        <!-- /ko -->
-                    </div>
-
-                    <div class="control-group">
-                        <label class="control-label">Custom scrollbars:</label>
-                        <div class="controls">
-                            <input type="checkbox" data-bind="checked: settings.enableScrollbars">
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <label class="control-label">Font size:</label>
-                        <div class="controls">
-                            <input type="text" data-bind="value: settings.fontSize">
+                            <span class="input uneditable-input">{{{size}}}</span>
                         </div>
                     </div>
 

@@ -21,16 +21,19 @@
  */
 
 /*jslint vars: true, plusplus: true, devel: true, nomen: true,  regexp: true, indent: 4, maxerr: 50 */
-/*global exports, define, require, brackets, $, window, marked, _hideSettings */
+/*global exports, require */
 
 (function () {
     "use strict";
 
     var fs = require("fs");
 
-    function cmdGetFileProperties(filePath) {
-        // var path = "C:/Users/Andrew/Documents/GitHub/brackets/src/main.js";
-        return fs.statSync(filePath);
+    function cmdGetFileProperties(filePath, fileName) {
+        var stats;
+        stats = fs.statSync(filePath);
+        stats.fileName = fileName;
+        return stats;
+
     }
 
     function init(domainManager) {

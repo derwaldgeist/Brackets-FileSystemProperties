@@ -1,0 +1,10 @@
+{
+    "paths": {
+        "moment": "lib/moment"
+     },
+    "config": {
+        "moment": {
+            "noGlobal": true
+        }
+    }
+}
