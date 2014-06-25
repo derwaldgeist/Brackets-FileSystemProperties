@@ -32,20 +32,25 @@ define(function (require, exports, module) {
         Menus               = brackets.getModule("command/Menus"),
         ExtensionUtils      = brackets.getModule("utils/ExtensionUtils"),
 		NodeDomain			= brackets.getModule("utils/NodeDomain"),
-        ProjectManager      = brackets.getModule("project/ProjectManager");
+        ProjectManager      = brackets.getModule("project/ProjectManager"),
+        Moment              = require("lib/moment");
 
     var contextMenu         = Menus.getContextMenu(Menus.ContextMenuIds.PROJECT_MENU);
 
     var fsDomain = new NodeDomain("fsDomain", ExtensionUtils.getModulePath(module, "node/fsDomain"));
 
     function showProperties() {
-        var selectedItem;
+        var selectedItem,
+            modified,
+            accessed,
+            created;
 
         selectedItem = ProjectManager.getSelectedItem();
         // console.log(selectedItem._path);
         fsDomain.exec("getFileProperties", selectedItem._path)
             .done(function (stats) {
-                console.log(stats);
+                var d = new Date(stats.mtime);
+                console.log(moment(d));
             }).fail(function (err) {
                 console.error("error in fs.stat: " + err);
             });
