@@ -42,7 +42,7 @@ define(function (require, exports, module) {
     var fsDomain = new NodeDomain("fsDomain", ExtensionUtils.getModulePath(module, "node/fsDomain"));
 
     function formatDateTime(theDateTime) {
-        return moment(theDateTime).format("dddd, MMMM Do YYYY, h:mm:ss a");
+        return moment(theDateTime).format("ddd, MMM Do YYYY, h:mm:ss a");
     }
 
     function showPropertiesDialog(stats) {
@@ -62,9 +62,9 @@ define(function (require, exports, module) {
                                           size: stats.size,
                                           uid: stats.uid,
                                           gid: stats.gid,
-                                          mdate: modified,
-                                          adate: accessed,
-                                          cdate: created,
+                                          mdate: formatDateTime(modified),
+                                          adate: formatDateTime(accessed),
+                                          cdate: formatDateTime(created),
                                           perms: modeOctal
                                          });
         propDialog = Dialogs.showModalDialogUsingTemplate(compiledDialog);
