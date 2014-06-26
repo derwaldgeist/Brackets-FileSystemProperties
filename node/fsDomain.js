@@ -36,6 +36,11 @@
 
     }
 
+    function cmdHandleChmod(filePath, mode) {
+        console.log(filePath.toString(), mode.toString());
+        return fs.chmodSync(filePath.toString(), mode.toString());
+    }
+
     function init(domainManager) {
         domainManager.registerDomain("fsDomain");
         domainManager.registerCommand(
@@ -44,6 +49,13 @@
             cmdGetFileProperties,
             false,
             "returns a file stat object from Node fs"
+        );
+        domainManager.registerCommand(
+            "fsDomain",
+            "handleChmod",
+            cmdHandleChmod,
+            false,
+            "applies new mode value to file using Node fs.chmod()"
         );
     }
 

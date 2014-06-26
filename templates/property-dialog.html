@@ -7,7 +7,7 @@
             <div class="span6">
                 <form class="form-horizontal">
                     <div class="control-group">
-                        <label class="control-label">Size:</label>
+                        <label class="control-label">Size (bytes):</label>
                         <div class="controls">
                             <span class="input uneditable-input">{{{size}}}</span>
                         </div>
@@ -51,7 +51,10 @@
                     <div class="control-group">
                         <label class="control-label">Permissions:</label>
                         <div class="controls">
-                            <span class="input uneditable-input">{{{perms}}}</span>
+                            <div class="input-append">
+                                <input type="text" class="span3" id="txtPerms" value="{{{perms}}}">
+                                <button class="btn" id="btnPerms" type="button">Apply</button>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -59,7 +62,6 @@
         </div>
     </div>
     <div class="modal-footer">
-        <a class="dialog-button btn cancel" data-button-id="cancel">Cancel</a>
-        <a class="dialog-button btn primary save" data-button-id="save">Save</a>
+        <a class="dialog-button btn primary" data-button-id="close">Close</a>
     </div>
 </div>
