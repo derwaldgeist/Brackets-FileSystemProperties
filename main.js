@@ -47,9 +47,11 @@ define(function (require, exports, module) {
 
     function handleChmod(mode, filePath) {
         fsDomain.exec("handleChmod", filePath, mode)
-            .done(function (ret) {
+            .done(function () {
+                $("#grpPerms").addClass("success");
                 console.log("Permissions changed to: " + mode);
             }).fail(function (err) {
+                $("#grpPerms").addClass("error");
                 console.error("error in fs.chmod: " + err);
             });
     }
@@ -60,8 +62,7 @@ define(function (require, exports, module) {
             created,
             modeOctal,
             propDialog,
-            compiledDialog,
-            perms;
+            compiledDialog;
 
         modified =  new Date(stats.mtime);
         accessed =  new Date(stats.atime);
