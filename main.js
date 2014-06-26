@@ -46,9 +46,9 @@ define(function (require, exports, module) {
     }
 
     function handleChmod(mode, filePath) {
-        fsDomain.exec("handleChmod", mode, filePath)
+        fsDomain.exec("handleChmod", filePath, mode)
             .done(function (ret) {
-                console.log(ret);
+                console.log("Permissions changed to: " + mode);
             }).fail(function (err) {
                 console.error("error in fs.chmod: " + err);
             });

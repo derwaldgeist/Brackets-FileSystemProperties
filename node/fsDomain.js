@@ -37,8 +37,8 @@
     }
 
     function cmdHandleChmod(filePath, mode) {
-        console.log(filePath.toString(), mode.toString());
-        return fs.chmodSync(filePath.toString(), mode.toString());
+        fs.chmodSync(filePath, mode);
+        return true;
     }
 
     function init(domainManager) {
