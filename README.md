@@ -11,4 +11,15 @@ Set Permissions on Files/Directories
 ====================================
 In the edit box for Permissions, enter the new octal value for the file or directory, i.e. to make a file globally writable, enter 666.
 
+**NOTICE on Windows**
+Due to the joys of Windows, in that it's not based on POSIX, there are limitations in how you can set file permissions that affect this extension.
+
+Basically you can:
+* set a file to writable using *only* `666`
+* set a file to read-only using *only* `444`
+* other values appear to be *ignored*
+* you probably don't even want to mess with folders/directories ;)
+
+More information can be found at the [NodeJS repo issues list](https://github.com/joyent/node/issues/4812)
+
 ![Screen Shot](brackets-filesystemproperties.png)
