@@ -10,3 +10,5 @@ After installing the extension, you can bring up properties for either a file or
 Set Permissions on Files/Directories
 ====================================
 In the edit box for Permissions, enter the new octal value for the file or directory, i.e. to make a file globally writable, enter 666.
+
+![Screen Shot](https://github.com/mackenza/Brackets-FileSystemProperties/blob/master/brackets-filesystemproperties.png)
