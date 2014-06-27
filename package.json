@@ -7,7 +7,7 @@
         "type": "git",
         "url": "git@github.com:mackenza/Brackets-FileSystemProperties.git"
     },
-    "version": "0.1.1",
+    "version": "0.1.2",
     "author": "Andrew MacKenzie <a.mackenzie@gmail.com> (http://github.com/mackenza)",
     "license": "MIT",
     "engines": {
