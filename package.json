@@ -3,6 +3,10 @@
     "title": "File System Properties",
     "description": "Allows viewing of file or folder properties and setting of permissions for items in the Project tree",
     "homepage": "https://github.com/mackenza/Brackets-FileSystemProperties",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:mackenza/Brackets-FileSystemProperties.git"
+    },
     "version": "0.1.1",
     "author": "Andrew MacKenzie <a.mackenzie@gmail.com> (http://github.com/mackenza)",
     "license": "MIT",
