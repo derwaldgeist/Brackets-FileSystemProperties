@@ -1,7 +1,7 @@
 {
     "name": "mackenza.file-system-properties",
     "title": "File System Properties",
-    "description": "Allows viewing and setting of file or folder properties, including permissions, from the Project tree",
+    "description": "Allows viewing of file or folder properties and setting of permissions for items in the Project tree",
     "homepage": "https://github.com/mackenza/FileSystemProperties",
     "version": "0.1.0",
     "author": "Andrew MacKenzie <a.mackenzie@gmail.com> (http://github.com/mackenza)",
