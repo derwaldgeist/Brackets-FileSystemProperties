@@ -5,6 +5,10 @@ Enables viewing/editing of file/folder properties in the Brackets project tree
 
 I initially wrote this extension to address [Brackets issue #7729](https://github.com/adobe/brackets/issues/7729)
 
+Changelog
+=========
+[CHANGELOG](CHANGELOG.md)
+
 Usage
 =====
 After installing the extension, you can bring up properties for either a file or directory by right-clicking on an item in the Project Tree (does not apply to Working Set items) and selecting "Properties".  All fields are read-only except "Permissions".

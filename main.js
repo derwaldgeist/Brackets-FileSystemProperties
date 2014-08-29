@@ -56,21 +56,30 @@ define(function (require, exports, module) {
             });
     }
 
+    function readablizeBytes(bytes) {
+        var s = ['bytes', 'kB', 'MB', 'GB', 'TB', 'PB'];
+        var e = Math.floor(Math.log(bytes) / Math.log(1024));
+        return (bytes / Math.pow(1024, e)).toFixed(2) + " " + s[e];
+    }
+
     function showPropertiesDialog(stats, filePath) {
         var modified,
             accessed,
             created,
             modeOctal,
             propDialog,
+            sizeText,
             compiledDialog;
 
+        sizeText = readablizeBytes(stats.size);
         modified =  new Date(stats.mtime);
         accessed =  new Date(stats.atime);
         created  =  new Date(stats.ctime);
         modeOctal = (stats.mode & parseInt('777', 8)).toString(8);
         compiledDialog = Mustache.render(propDialogTmpl,
                                          {fileName: stats.fileName,
-                                          size: stats.size,
+                                          size: sizeText,
+                                          sizeBytes: stats.size.toLocaleString(),
                                           uid: stats.uid,
                                           gid: stats.gid,
                                           mdate: formatDateTime(modified),
@@ -96,7 +105,7 @@ define(function (require, exports, module) {
             });
 
     }
-
+    ExtensionUtils.loadStyleSheet(module, 'styles/main.css');
     CommandManager.register("Properties", "mackenza.cmdShowProperties", showProperties);
     contextMenu.addMenuItem("mackenza.cmdShowProperties", "", Menus.LAST);
 
