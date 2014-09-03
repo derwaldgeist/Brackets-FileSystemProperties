@@ -1,13 +1,13 @@
 <div class="file-properties-dialog modal">
     <div class="modal-header">
-        <h1 class="dialog-title">Properties for {{{fileName}}}</h1>
+        <h1 class="dialog-title">{{{Strings.PROPERTIES_TEXT}}}: {{{fileName}}}</h1>
     </div>
     <div class="modal-body">
         <div class="row">
             <div class="span6">
                 <form class="form-horizontal">
                     <div class="control-group">
-                        <label class="control-label">Size:</label>
+                        <label class="control-label">{{{Strings.SIZE_TEXT}}}:</label>
                         <div class="controls">
                             <span class="input uneditable-input">{{{size}}}  ({{{sizeBytes}}} bytes)</span>
                         </div>
@@ -28,28 +28,28 @@
                     </div>
 
                     <div class="control-group">
-                        <label class="control-label">Create Date:</label>
+                        <label class="control-label">{{{Strings.CREATE_DATE_TEXT}}}:</label>
                         <div class="controls">
                             <span class="input uneditable-input">{{{cdate}}}</span>
                         </div>
                     </div>
 
                     <div class="control-group">
-                        <label class="control-label">Access Date:</label>
+                        <label class="control-label">{{{Strings.ACCESS_DATE_TEXT}}}:</label>
                         <div class="controls">
                             <span class="input uneditable-input">{{{adate}}}</span>
                         </div>
                     </div>
 
                     <div class="control-group">
-                        <label class="control-label">Modified Date:</label>
+                        <label class="control-label">{{{Strings.MODIFY_DATE_TEXT}}}:</label>
                         <div class="controls">
                             <span class="input uneditable-input">{{{mdate}}}</span>
                         </div>
                     </div>
 
                     <div class="control-group" id="grpPerms">
-                        <label class="control-label">Permissions:</label>
+                        <label class="control-label">{{{Strings.PERMISSIONS_TEXT:</label>
                         <div class="controls">
                             <div class="input-append">
                                 <input type="text" class="span3" id="txtPerms" value="{{{perms}}}">

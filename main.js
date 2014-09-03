@@ -35,6 +35,7 @@ define(function (require, exports, module) {
         ProjectManager      = brackets.getModule("project/ProjectManager"),
         moment              = require("moment"),
         Dialogs             = brackets.getModule("widgets/Dialogs"),
+        Strings             = require("strings");
         propDialogTmpl      = require("text!templates/property-dialog.html");
 
     var contextMenu         = Menus.getContextMenu(Menus.ContextMenuIds.PROJECT_MENU);
