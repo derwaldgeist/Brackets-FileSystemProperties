@@ -35,7 +35,7 @@ define(function (require, exports, module) {
         ProjectManager      = brackets.getModule("project/ProjectManager"),
         moment              = require("moment"),
         Dialogs             = brackets.getModule("widgets/Dialogs"),
-        Strings             = require("strings");
+        Strings             = require("strings"),
         propDialogTmpl      = require("text!templates/property-dialog.html");
 
     var contextMenu         = Menus.getContextMenu(Menus.ContextMenuIds.PROJECT_MENU);
@@ -78,7 +78,8 @@ define(function (require, exports, module) {
         created  =  new Date(stats.ctime);
         modeOctal = (stats.mode & parseInt('777', 8)).toString(8);
         compiledDialog = Mustache.render(propDialogTmpl,
-                                         {fileName: stats.fileName,
+                                         {Strings:  Strings,
+                                          fileName: stats.fileName,
                                           size: sizeText,
                                           sizeBytes: stats.size.toLocaleString(),
                                           uid: stats.uid,
@@ -107,7 +108,7 @@ define(function (require, exports, module) {
 
     }
     ExtensionUtils.loadStyleSheet(module, 'styles/main.css');
-    CommandManager.register("Properties", "mackenza.cmdShowProperties", showProperties);
+    CommandManager.register(Strings.PROPERTIES_MENU, "mackenza.cmdShowProperties", showProperties);
     contextMenu.addMenuItem("mackenza.cmdShowProperties", "", Menus.LAST);
 
 });

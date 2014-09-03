@@ -20,6 +20,19 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
+/*global define */
+
 define({
     // dialog box
-    "MENU_SHOW_SHORTCUTS"                       : "Show Shortcuts",
+    "PROPERTIES_TEXT"                       : "Properties",
+    "SIZE_TEXT"                             : "Size",
+    "CREATE_DATE_TEXT"                      : "Create Date",
+    "ACCESS_DATE_TEXT"                      : "Access Date",
+    "MODIFY_DATE_TEXT"                      : "Modify Date",
+    "PERMISSIONS_TEXT"                      : "Permissions",
+    "APPLY_TEXT"                            : "Apply",
+    "CLOSE_TEXT"                            : "Close",
+
+    // menu
+    "PROPERTIES_MENU"                       : "Properties"
+});
