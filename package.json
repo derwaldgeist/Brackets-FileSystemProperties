@@ -1,13 +1,13 @@
 {
     "name": "mackenza.file-system-properties",
     "title": "File System Properties",
-    "description": "Allows viewing of file or folder properties (such as file size, etc) and setting of permissions for items in the Project tree",
+    "description": "Allows viewing of file or folder properties (such as file size, etc) and setting of permissions for items in the Project tree.  This extension is NLS-enabled and translation PRs are welcome!",
     "homepage": "https://github.com/mackenza/Brackets-FileSystemProperties",
     "repository": {
         "type": "git",
         "url": "git@github.com:mackenza/Brackets-FileSystemProperties.git"
     },
-    "version": "0.2.0",
+    "version": "1.0.0",
     "author": "Andrew MacKenzie <a.mackenzie@gmail.com> (http://github.com/mackenza)",
     "license": "MIT",
     "engines": {
