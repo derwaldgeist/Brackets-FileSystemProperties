@@ -9,6 +9,8 @@ Changelog
 =========
 [CHANGELOG](CHANGELOG.md)
 
+**Note** as of v1.0.0 this extension is NLS-enabled and I welcome new language PRs!
+
 Usage
 =====
 After installing the extension, you can bring up properties for either a file or directory by right-clicking on an item in the Project Tree (does not apply to Working Set items) and selecting "Properties".  All fields are read-only except "Permissions".
