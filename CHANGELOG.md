@@ -1,6 +1,11 @@
 # Changelog
 All notable changes in this extension will be documented in this file.
 
+## 1.0.1 - 2014-09-03
+
+### Added
+- put the available translations in package.json to extension manager shows them
+
 ## 1.0.0 - 2014-09-03
 
 ### Added
