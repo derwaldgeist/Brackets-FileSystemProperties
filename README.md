@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/mackenza/Brackets-FileSystemProperties.png?label=ready&title=Ready)](https://waffle.io/mackenza/Brackets-FileSystemProperties)
 Brackets-FileSystemProperties
 =============================
 
