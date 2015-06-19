@@ -5,7 +5,7 @@
     "homepage": "https://github.com/mackenza/Brackets-FileSystemProperties",
     "repository": {
         "type": "git",
-        "url": "git@github.com:derwaldgeist/Brackets-FileSystemProperties.git"
+        "url": "git@github.com:mackenza/Brackets-FileSystemProperties.git"
     },
     "version": "1.0.1",
     "author": "Andrew MacKenzie <a.mackenzie@gmail.com> (http://github.com/mackenza)",
